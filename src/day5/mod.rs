@@ -27,7 +27,7 @@ fn part2() -> String {
     let input = get_input("./src/day5/day5.input");
     let mut passes = HashSet::<i32>::new();
     let mut max = 0;
-    let mut min = 2 << 32 - 1;
+    let mut min = 2 << 16 - 1;
 
     for pass in input {
         let [row_instructions, column_instructions] = [
@@ -45,12 +45,7 @@ fn part2() -> String {
     let diff = sentinel.difference(&passes);
 
     for d in diff {
-        let x = d - 1;
-        let y = d + 1;
-
-        if passes.contains(&x) && passes.contains(&y) {
-            return d.to_string();
-        }
+        return d.to_string();
     }
 
     String::from("No results")
