@@ -1,6 +1,7 @@
 use clap::{App, Arg};
 
 mod day1;
+mod day2;
 
 fn main() {
     let matches = App::new("AOC")
@@ -23,6 +24,7 @@ fn main() {
 fn run(day: &str) {
     match day {
         "1" => day1::run(),
+        "2" => day2::run(),
         _   => println!("No such day! :O")
     }
 }
