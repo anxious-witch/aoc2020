@@ -40,9 +40,12 @@ fn part2() -> String {
 
     for i in 0..index {
         let mut range: Vec<u128> = vec![];
+        let mut sum = 0;
 
         for j in i..index {
-            let sum: u128 = range.iter().sum();
+            if range.len() > 0 {
+                sum += input[j];
+            }
             if sum == invalid {
                 return (
                     range.iter().min().unwrap_or(&0) + 
